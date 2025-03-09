@@ -1,0 +1,230 @@
+.paper-viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--background-light);
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  padding-top: 10px;
+}
+
+.paper-viewer.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  border-radius: 0;
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  background-color: var(--background-light);
+  padding-top: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 5;
+}
+
+.viewer-controls {
+  display: flex;
+  gap: 0.5rem;
+  padding-right: 1rem;
+}
+
+.control-button {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.control-button:hover {
+  background-color: var(--background-off);
+  color: var(--text-primary);
+}
+
+.pdf-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-off);
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.latex-container {
+  flex: 1;
+  overflow: auto;
+  background-color: var(--background-light);
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem;
+}
+
+.latex-code {
+  padding: 1.25rem;
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  background-color: var(--background-off);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.latex-code code {
+  font-family: 'Fira Code', monospace;
+  background: transparent;
+  padding: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+  background-color: var(--background-light);
+  border-top: 1px solid var(--border-light);
+}
+
+.page-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-button:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 2rem;
+}
+
+.placeholder::before {
+  content: "";
+}
+
+.example {
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+  color: var(--text-secondary);
+}
+
+.loading::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(79, 70, 229, 0.1);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.75rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: #dc3545;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pdf-container {
+    min-height: 300px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .pdf-container {
+    min-height: 500px;
+  }
+}
+
+.tabs {
+  display: flex;
+  background-color: var(--background-light);
+  padding: 0 0.5rem;
+  padding-left: 1rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.25rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.tab-button.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.tab-button:hover {
+  color: var(--primary-color);
+  background-color: rgba(79, 70, 229, 0.05);
+} 
