@@ -1,12 +1,14 @@
 # arxiv-tex-ui
 
-A web app for understanding and interacting with equation-heavy academic papers from arXiv.
+A web app for understanding and interacting with equation-heavy arXiv papers.
+
+<img src="./public/ui.png" alt="arxiv-tex-ui" width="600">
 
 Many PDF chat applications often struggle with mathematical content and equation heavy papers.
 By utilizing the original LaTeX source code from arXiv papers, the backend llm can accurately understand and handle equations/notations.
 Particularly valuable for fields like computer science, mathematics, and engineering.
 
-## Features
+### Features
 
 - Load papers from arXiv by ID
 - View PDF papers
@@ -15,7 +17,7 @@ Particularly valuable for fields like computer science, mathematics, and enginee
 - Streaming chat responses for a better UX
 - Math rendering with KaTeX for beautiful equations
 
-## Installation and running the App
+### Installation and running the App
 
 The project requires Node.js and Python.
 
